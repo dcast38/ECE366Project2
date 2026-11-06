@@ -1,4 +1,4 @@
 Project 2 Created by
-David Castro
-Angel Castro
-Alex Aucapina
+David Castro - 662865660 |
+Angel Castro - |
+Alex Aucapina - 
