@@ -1,9 +1,9 @@
-#David Castro
-
+# David Castro
+# Fibonacci(n): reads n from memory, stores result in memory
 
 .data 
 n: .word 5
-fibs: .word 0
+result: .word 0
 	
 .text
 
@@ -11,24 +11,24 @@ main:
 	la $t0, n   		#loads address n to register $t0
 	lw $t1,0($t0)		#loads memmory of n to $t1
 	ble $t1, 1, return	#compares n <=1 then jumps to return
-	li $t2, 0		# a = 0
-	li $t3, 1		# b = 1
-	li $t4, 0		# i = 0
+	li $t2, 0			# a = 0
+	li $t3, 1			# b = 1
+	li $t4, 0			# i = 0
 	addi $t6, $t1, -1	#limit = n-1
 loop:
 	bge $t4, $t6, done	#if i >= limit leave the loop
 	move $t7, $t3		# temp = b
 	add $t3, $t2, $t3	# b = a+b
-	move $t2, $t7		# a = tmep
+	move $t2, $t7		# a = temp
 	addi $t4, $t4, 1	#i = i + 1
-	j loop			#back to the top
+	j loop				#back to the top
 
 done:
-	move $t1, $t3		# n the value in $t3
+	move $t1, $t3		# answer = b
 	
 return:
-	la $t5, fibs
-	sw $t1, 0($t5)		#returns n
+	la $t5, result
+	sw $t1, 0($t5)		#stores the answer
 	li $v0, 10
-	syscall			#ends the code
+	syscall				#ends the code
 	
