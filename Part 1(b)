@@ -1,4 +1,6 @@
 #Angel Castro
+#Division by Repeated Subtraction
+
 .data
 m:      .word 5
 result: .word 0
