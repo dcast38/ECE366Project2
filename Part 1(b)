@@ -1,0 +1,25 @@
+#Angel Castro
+.data
+m:      .word 5
+result: .word 0
+.text
+main:
+    la $t0, m             # loads the address of m in $t0
+    lw $t1, 0($t0)        # loads the value of m in $t1
+    li $t2, 2             # THe divisor = 2
+division:
+    blt $t1, $t2, check   # this checks if m < 2, then $t1 is the remainder
+    sub $t1, $t1, $t2     # m = m - 2
+    j division            # repeat subtraction
+check:
+    beq $t1, $zero, even  # checks if remainder is 0, then number is even
+odd:
+    li $t3, 1             # True
+    j return
+even:
+    li $t3, 0             # False
+return:
+    la $t4, result
+    sw $t3, 0($t4)        # this stores the answer in result
+    li $v0, 10
+    syscall
