@@ -1,5 +1,6 @@
 #Alex Aucapina
 #MIPS Program IsFibonacciOdd(n)
+
 .data
 n:        .word 5
 result:   .word 0
